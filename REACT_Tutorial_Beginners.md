@@ -78,3 +78,20 @@ We pass the values of the props like HTML property values.
 
 ## Passing Functions via Props
 
+In real life,  in the majority of times, we want that something happens **after** an item is selected, as filtering an object, redirect to another page, etc. <br>
+Thinking in how to add the logic **without** interfering with the component (having in mind the components should be reusable), we would have the parent element (in our case, the `app` component) to inform its children components of changings in the state, and those changes in the state would make the children components respond as needed. <br>
+We are going to create a property in the interface, that is a function, that **do not return anything**. The name will be `onSomething`, like the `onClick` known property of HTML. <br>
+
+
+## States vs Props
+
+- `Props` :arrow_right: are the **inputs** passed to the component. They should be treat as **immtable**, or read-only.
+- `State` :arrow_right: is the **internal data** managed by the component that can **change over time**, they are similar to local variables inside a function. They are (and should be) **mutable**, since we want to capture their changes over time. <br>
+:exclamation: OBS: Both have one thing in common: any time they change, React will re-render our component and modify the DOM accordingly.
+
+
+## Passing Children
+
+How to create a component that has children. <br>
+On the `components` folder, add a New File, called `Alert.tsx`. Instal the extension by searching for "ES7+", that provides shortcuts, as we will use some of them right now, instead of defining a function and exporting it by default, we will going to use the shortcut: `rafce`, that will create an React Arrow Function Export Component and we have our code snippet just created. <br>
+

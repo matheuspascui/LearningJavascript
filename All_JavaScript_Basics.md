@@ -210,3 +210,66 @@ import {Person} from './classPerson';
 I was geting some errors by using `node index.js` trying to execute the index.js file that imports the Person and Teacher files/Classes. It throws an error of `Cannot use import statement outside a module`. I think this is because i did not initialized a node project (as seen in the video tutorial (Mosh ES6 Tutorial)). <br>
 **NAMED IMPORTS: `import {XYZ} from './XYZ';`** <br>
 **DEFAULT IMPORTS: `import XYZ from 'XYZ';`**
+
+<br>
+<br>
+
+## TYPESCRIPT BASICS
+
+:radio_button: UNION TYPES
+
+Union types can be used when we want to define a method that will accept many types as arguments. Since **Method Overloading is NOT supported in Typescript/Javascript**, this is the way to simulate this action. Exemplo:
+```C#
+public class Main
+{
+    public float ToSum(float a, float b)
+    {
+        return a + b;
+    }
+
+    public string ToSum(string a, string b)
+    {
+        return $"{a}{b}";
+    }
+}
+```
+
+This would be a Method Overload in C#, since we have 2 Methods with the same name, but with different signatures (the name, return type and argument type). It does not exist in Typescript/Javascript, so we can have **only ONE Method** that accepts this 2 types:
+```typescript
+function Sum(num1: number | string, num2: number | string){
+    if (typeof num1 === 'number'){
+        return num1 + num2;
+    } else {
+        return `${num1}${num2}`;
+    };
+};
+```
+HOWEVER, Typescript **OBLIGATES ME TO TYPE CHECK THE VARIABLE** using an If, as seen before.
+
+Also it is possible to **create a NEW Type** based on two others, as in:
+```typescript
+type NumberOrString = number | string;
+
+function Sum(num1: NumberOrString, num2: number) {
+    if (typeof num1 === 'number'){
+        return num1 + num2;
+    } else {
+        return `${num1}${num2}`;
+    };
+};
+```
+
+Using the keyword **`type`**, we can create this Union Type (this is a Type Alias).
+
+Another example of the Type Alias usage is to declare the **shape** of an Object, like:
+```typescript
+type User = {username: string, password: string, birthdate: Date};
+
+function Login(user: User) {
+    // if user exists in database, Login, else, call the Sign Up Page
+    console.log(user.username);
+    console.log(user.birthdate);
+}
+```
+
+Also, another type of object that can have good results with types is the Array. With types, we can declare the type of the array, like in C#. This helps prevent errors.
