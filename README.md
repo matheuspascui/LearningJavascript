@@ -10,6 +10,6 @@ In the `All_JavaScript_Basics.md`, I try to compile the minimum ammount of JavaS
 
 For an Introduction to React, I was following the "Programming with Mosh" video about React and was taking some notes and writing some reminders for myself. 
 
-:exlamation: OBS: all the present files will be updated as I progress on the courses and take more notes.
+:exclamation: OBS: all the present files will be updated as I progress on the courses and take more notes.
 
 That's all, folks!
